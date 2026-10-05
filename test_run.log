@@ -1,0 +1,64 @@
+No files changed, compilation skipped
+
+Ran 1 test for test/01_DepositAndYieldRouting.t.sol:DepositAndYieldRoutingTest
+[PASS] test_DepositAndYieldRoutingFlow() (gas: 1821892)
+Logs:
+  === STEP 1: INITIAL STATE ===
+  Initial Accounted Principal: 101000000
+  Initial Managed Assets:      101000000
+  Initial SEAT Total Supply:   100
+  Quoted cost for 5 SEATs:     5000000
+  PrincipalManager Strategy Shares: 56000000
+  Dead shares at 0xdead:           0
+  
+=== STEP 2: INTRODUCING SYNTHETIC PROFIT ===
+  Strategy total assets before report: 56000000
+  Reported Profit from harvest: 499999999
+  Reported Loss:                0
+  Safe Donation Shares After:       499999999
+  PrincipalManager Shares After:    56000000
+
+Suite result: ok. 1 passed; 0 failed; 0 skipped; finished in 59.12s (51.97s CPU time)
+
+Ran 2 tests for test/03_NegativeTests.t.sol:NegativeTests
+[PASS] test_Negative_DivertedYieldNotCountedAsAvailableToPEN() (gas: 3004573)
+Logs:
+  === NEGATIVE TEST 2: DIVERTED YIELD ROUTING ===
+  Third Party Received Shares:        299999999
+  PEN Safe Received Shares:           0
+  PEN PrincipalManager Received Shares: 56000000
+  PEN Managed Assets After Report:     106000000
+  PEN Accounted Principal After Report: 106000000
+  PEN Available Yield After Report:     0
+  Passed: Diverted yield is completely isolated from PEN accounting
+
+[PASS] test_Negative_UnauthorizedReportFails() (gas: 31527)
+Logs:
+  === NEGATIVE TEST 1: UNAUTHORIZED REPORTING ===
+  Passed: Unauthorized report successfully reverted with '!keeper'
+
+Suite result: ok. 2 passed; 0 failed; 0 skipped; finished in 59.12s (52.58s CPU time)
+
+Ran 1 test for test/02_YieldRealizationAndRefund.t.sol:YieldRealizationAndRefundTest
+[PASS] test_YieldRealizationAndDeepRefund() (gas: 4752685)
+Logs:
+  === PRIOR TO YIELD REALIZATION ===
+  Safe Donation Shares:         499999999
+  PM Accounted Principal:       106000000
+  PM Total Managed Assets:      106000000
+  PM Available Yield:           0
+  
+=== REALIZING DONATED YIELD INTO PRINCIPALMANAGER ===
+  USDC redeemed by Safe from donation shares: 499999999
+  PM Total Managed Assets After:  605999999
+  PM Accounted Principal After:   106000000
+  PM Available Yield After:       499999999
+  
+=== EXERCISING DEEP SEAT REFUND (VAULT WITHDRAWAL) ===
+  Buyer USDC received from refund:     500000
+  PrincipalManager Vault Shares Burned: 500000
+  Accounted Principal Reduction:        500000
+
+Suite result: ok. 1 passed; 0 failed; 0 skipped; finished in 59.90s (52.75s CPU time)
+
+Ran 3 test suites in 59.91s (178.15s CPU time): 4 tests passed, 0 failed, 0 skipped (4 total tests)
