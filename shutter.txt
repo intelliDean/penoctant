@@ -1,0 +1,17 @@
+PEN–Octant Integration Proof
+Project description
+Build an open-source Foundry test package for one candidate integration between Shutter’s Perpetual Endowment Network (PEN) and an Octant yield-donating USDC strategy using the Morpho/Steakhouse vault.
+The project will establish where principal and yield are held, how donated yield becomes available for PEN funding, and whether SEAT refunds function under the tested conditions. Developers and proposal reviewers will receive reproducible results showing a working configuration or a precise incompatibility.
+All testing runs on a local Ethereum mainnet fork. No mainnet funds are moved, and the project is not a security audit or a guarantee of principal protection.
+
+Brief MVP / to-do
+Set up the test environment. Pin the PEN source, Octant 1.3.0 source, dependencies, and fork block. Verify the PEN deployment’s identity. Deploy the candidate Octant strategy locally with the PEN governance Safe as the donation-share recipient and donation-share burning disabled.
+Demonstrate deposit and yield routing. Purchase test SEATs through PEN and confirm that PrincipalManager receives the strategy shares. Introduce clearly labeled synthetic profit, call Octant’s actual reporting function, and verify where donation shares are minted. Do not manufacture the expected shares manually.
+
+Demonstrate yield realization and a refund. Redeem the Safe’s donation shares, transfer the resulting USDC into PrincipalManager, and record the accounting changes. Exercise one SEAT refund that requires a vault withdrawal—not just existing liquid reserves.
+Add two negative tests. Confirm that unauthorized reporting fails and that yield sent to another recipient is not incorrectly counted as available to PEN.
+
+MVP deliverables
+One public repository containing setup instructions, pinned configuration, executable tests, captured logs, and a short RESULTS.md. Results must separately show share ownership, managed assets, recorded principal, total refund obligation, and available surplus. Identify rounding costs, synthetic inputs, impersonated actors, and unresolved assumptions.
+MVP acceptance: Another developer can reproduce the demonstrated flow—or the same clearly explained incompatibility—from a clean checkout.
+Full-grant work beyond the MVP: Complete funding/governance rehearsal, additional loss and liquidity-failure tests, and the final operator handover.
