@@ -6,7 +6,7 @@ Open-source Foundry integration test package verifying the integration between *
 
 ## Current Project Status: MVP Complete ✅
 
-All deliverables specified in the integration scope (`shutter.txt`) are implemented, tested, and audited:
+All deliverables specified in the integration scope are implemented, tested, and audited:
 
 | Requirement | Implementation / Artifact | Status |
 | :--- | :--- | :---: |
@@ -16,7 +16,6 @@ All deliverables specified in the integration scope (`shutter.txt`) are implemen
 | **Negative Tests** | `test/03_NegativeTests.t.sol` (`!keeper` unauthorized report, diverted yield isolation) | ✅ Complete |
 | **Accounting Audit & Results** | [`RESULTS.md`](./RESULTS.md) (share tracking, rounding analysis, accounting invariants) | ✅ Complete |
 | **Execution Logs** | [`test_run.log`](./test_run.log) (complete test run output and transaction logs) | ✅ Complete |
-| **Feasibility Research** | [`FEASIBILITY_REPORT.md`](./FEASIBILITY_REPORT.md) (architectural deep-dive and parameter analysis) | ✅ Complete |
 
 ---
 

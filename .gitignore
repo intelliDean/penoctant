@@ -2,3 +2,6 @@ out/
 cache/
 research/
 .env
+
+FEASIBILITY_REPORT.md
+shutter.txt
